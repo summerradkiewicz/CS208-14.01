@@ -1,8 +1,16 @@
+:root {
+  --dark-green: #10291D; /* for dark backgrounds or sections on pages */
+  --saffron: #F7C64A; /* for dividing lines & decorative elements, and the logo */
+  --seasalt: #F7F7F7; /* for backgrounds and text on colored backgrounds */
+  --cool-gray: #8C92AC; /* for tertiary elements and small details */
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  font-size: large;
+  color: #8b602c;
 }

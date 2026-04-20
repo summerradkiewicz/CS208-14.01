@@ -3,7 +3,7 @@ const path = require('path');
 const { dbMiddleware} = require('./bin/db');
 
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes');
 //add more handlers here
 
 const app = express();

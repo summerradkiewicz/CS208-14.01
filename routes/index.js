@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next){
+/* GET home page and Pug page path. */
+router.get(['/', '/comments.pug'], function(req, res, next){
   try {
     req.db.query('SELECT * FROM todos;', (err, results) => {
       if (err) {
@@ -27,7 +27,7 @@ router.post('/create', function (req, res, next) {
         }
         console.log('Todo added successfully:', results);
         // Redirect to the home page after adding
-        res.redirect('/');
+        res.redirect('/comments.pug');
       });
     } catch (error) {
       console.error('Error adding todo:', error);
@@ -45,7 +45,7 @@ router.post('/delete', function (req, res, next) {
         }
         console.log('Todo deleted successfully:', results);
         // Redirect to the home page after deletion
-        res.redirect('/');
+        res.redirect('/comments.pug');
     });
     }catch (error) {
         console.error('Error deleting todo:', error);
