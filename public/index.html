@@ -25,15 +25,21 @@
 //- accessibility stuff
 //- error states + edge cases -->
 
+<!-- sites referenced
+  https://quentin-bellanger.com/blog/keyboard-navigation/
+  mdn web docs
+-->
+
 <body>
 
   <header>
     <img class="logo-img" src="images/logo-dark.png" alt="Downtown Donuts Company Logo" width="200">
     <!-- NAVIGATION -->
     <nav>
-      <a href="">Menu</a>
-      <a href="">About Us</a>
-      <a href="/comments.pug">Leave a Comment</a>
+      <a class="active-page">Home</a>
+      <a href="menu.html" tabindex="1">Menu</a>
+      <a href="about.html" tabindex="2">About Us</a>
+      <a href="/comments.pug" tabindex="3">Leave a Comment</a>
     </nav>
   </header>
 

@@ -65,6 +65,10 @@ nav a:hover {
   color: var(--saffron);
 }
 
+.active-page, .active-page:hover {
+  color: var(--cool-gray);
+}
+
 main {
   display: flex;
   flex-direction: row;
