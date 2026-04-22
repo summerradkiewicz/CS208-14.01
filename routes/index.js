@@ -17,7 +17,7 @@ router.get(['/', '/comments.pug'], function(req, res, next){
         formattedDate: new Date(row.submitted * 1000).toLocaleString()
       }));
       const offset = parseInt(req.query.offset) || 0;
-      const displayed = results.slice(0, 10 + offset);
+      const displayed = results.reverse().slice(0, 10 + offset);
       res.render('index', { title: 'Downtown Donuts', todos: displayed, offset: offset, totalCount: results.length });
       // res.render('index', { title: 'Downtown Donuts', todos: results });
     });

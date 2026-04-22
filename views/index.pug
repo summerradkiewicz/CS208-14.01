@@ -3,6 +3,12 @@ extends layout
 block content
   h2 Welcome to Comments by Real People
 
+  h2 Comment:
+  form(method='POST' action='/create')
+    //label(for='task') Task:
+    input(type='text', name='task', id='task', required, maxlength="250")
+    button(type='submit') Submit
+  hr
   ol
   each val in todos
     li
@@ -13,10 +19,3 @@ block content
 
   if todos.length < totalCount
     a(href="/comments.pug?offset=" + (offset + 3)) Load More
-
-  hr
-  h2 Comment:
-  form(method='POST' action='/create')
-    //label(for='task') Task:
-    input(type='text', name='task', id='task', required, maxlength="250")
-    button(type='submit') Submit
