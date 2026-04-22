@@ -1,8 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2 Welcome to Comments by Real People
+
+  //Reject empty fields, enforce a maximum character length, and sanitize input to prevent XSS.
+
+  //Timestamps: Each comment must display when it was posted
+  //  (e.g., “2 hours ago” or a formatted date). The timestamp must be generated server-side.
+
+  //Pagination or lazy loading: >10 comments, do a load more button/comment pages
+
+  //Error handling: display meaningful error messages (no raw error codes or stack traces)
+
   ol
   each val in todos
     li
@@ -16,7 +25,7 @@ block content
         button(type='submit') Delete
 
   hr
-  h2 Add a new task
+  h2 Comment:
   form(method='POST' action='/create')
     label(for='task') Task:
     input(type='text', name='task', id='task', required)
