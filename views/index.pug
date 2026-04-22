@@ -5,21 +5,16 @@ block content
 
   //Reject empty fields, enforce a maximum character length, and sanitize input to prevent XSS.
 
-  //Timestamps: Each comment must display when it was posted
-  //  (e.g., “2 hours ago” or a formatted date). The timestamp must be generated server-side.
-
   //Pagination/lazy loading: >10 comments, do a load more button/comment pages
 
   //Error handling: display meaningful error messages (no raw error codes or stack traces)
 
+  //done: timestamp
+
   ol
   each val in todos
     li
-      span= val.task + ' - '
-      if val.completed > 0
-        span Completed
-      else
-        span Not Completed
+      span= val.task + ' - ' + val.formattedDate
       form(method='POST' action='/delete')
         input(type='hidden', name='id', value=val.id)
         button(type='submit') Delete
@@ -27,6 +22,6 @@ block content
   hr
   h2 Comment:
   form(method='POST' action='/create')
-    label(for='task') Task:
-    input(type='text', name='task', id='task', required)
-    button(type='submit') Create Task
+    //label(for='task') Task:
+    input(type='text', name='task', id='task', required, maxlength="250")
+    button(type='submit') Submit
