@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page and Pug page path. */
 router.get(['/', '/comments.pug'], function(req, res, next){
   try {
@@ -14,7 +15,10 @@ router.get(['/', '/comments.pug'], function(req, res, next){
         ...row,
         formattedDate: new Date(row.submitted * 1000).toLocaleString()
       }));
-      res.render('index', { title: 'Downtown Donuts', todos: results });
+      const offset = parseInt(req.query.offset) || 0;
+      const displayed = results.slice(0, 10 + offset);
+      res.render('index', { title: 'Downtown Donuts', todos: displayed, offset: offset, totalCount: results.length });
+      // res.render('index', { title: 'Downtown Donuts', todos: results });
     });
   } catch (error) {
     console.error('Error fetching items:', error);
@@ -24,6 +28,16 @@ router.get(['/', '/comments.pug'], function(req, res, next){
 
 router.post('/create', function (req, res, next) {
     const { task } = req.body;
+    const MAX_LENGTH = 250;
+    
+    // Validate character limit
+    if (!task || task.trim().length === 0) {
+      return res.status(400).send('Comment cannot be empty');
+    }
+    if (task.length > MAX_LENGTH) {
+      return res.status(400).send(`Comment exceeds maximum length of ${MAX_LENGTH} characters`);
+    }
+    
     try {
       req.db.query('INSERT INTO todos (task) VALUES (?);', [task], (err, results) => {
         if (err) {

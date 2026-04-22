@@ -3,13 +3,11 @@ extends layout
 block content
   h2 Welcome to Comments by Real People
 
-  //Reject empty fields, enforce a maximum character length, and sanitize input to prevent XSS.
-
-  //Pagination/lazy loading: >10 comments, do a load more button/comment pages
+  //and sanitize input to prevent XSS.
 
   //Error handling: display meaningful error messages (no raw error codes or stack traces)
 
-  //done: timestamp
+  //done: timestamp, reject empty, max length, lazy loading
 
   ol
   each val in todos
@@ -18,6 +16,9 @@ block content
       form(method='POST' action='/delete')
         input(type='hidden', name='id', value=val.id)
         button(type='submit') Delete
+
+  if todos.length < totalCount
+    a(href="/comments.pug?offset=" + (offset + 3)) Load More
 
   hr
   h2 Comment:
