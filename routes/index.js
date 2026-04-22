@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const xss = require('xss');
 
 
 /* GET home page and Pug page path. */
@@ -27,9 +28,10 @@ router.get(['/', '/comments.pug'], function(req, res, next){
 });
 
 router.post('/create', function (req, res, next) {
-    const { task } = req.body;
+    let { task } = req.body;
     const MAX_LENGTH = 250;
-    
+    task = xss(task.trim()); // Remove scripts/HTML, trim whitespace
+
     // Validate character limit
     if (!task || task.trim().length === 0) {
       return res.status(400).send('Comment cannot be empty');
