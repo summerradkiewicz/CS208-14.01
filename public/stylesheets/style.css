@@ -87,6 +87,23 @@ main {
   display: inline;
 }
 
+.donut-img1 {
+  opacity: 0;
+  animation: 10s slide ease infinite;
+  animation-delay: 5s;
+}
+
+.donut-img2 {
+  animation: 10s slide ease infinite
+}
+
+@keyframes slide {
+  0% {opacity: 0; left: 40vw; z-index: 15;}
+  15% {opacity: 100;}
+  90% {opacity: 100;}
+  100% {opacity: 0; left: -5vw; z-index: 2};
+}
+
 section {
   background-color: var(--seasalt);
   float: left;
