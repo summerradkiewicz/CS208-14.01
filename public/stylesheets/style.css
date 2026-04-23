@@ -3,6 +3,7 @@
   --saffron: #F7C64A; /* for dividing lines & decorative elements, and the logo */
   --seasalt: #F7F7F7; /* for backgrounds and text on colored backgrounds */
   --cool-gray: #8C92AC; /* for tertiary elements and small details */
+  --beige: #f0d08b;
   font-family: 'Montserrat', sans-serif;
   background-color: var(--seasalt);
 }
@@ -104,7 +105,7 @@ main {
   100% {opacity: 0; left: -5vw; z-index: 2};
 }
 
-section {
+.hero-text {
   background-color: var(--seasalt);
   float: left;
   position: relative;
@@ -115,7 +116,24 @@ section {
 }
 
 footer {
+  background-color: var(--beige);
   position: relative;
   padding: 5em;
   font-size: large;
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding: 1em;
+}
+
+footer a:hover {
+  color: var(--seasalt);
+}
+
+footer h3 {
+  text-align: right;
+  padding-right: 2em;
 }
