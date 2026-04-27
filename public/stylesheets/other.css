@@ -19,6 +19,7 @@ section {
 
 .coffee-menu {
     background-color: var(--saffron);
+    padding-bottom: 4em;
 }
 
 /* Table of Coffee/Prices*/
@@ -30,9 +31,14 @@ table {
 .menu-option {
     background-color: var(--saffron);
     text-align: left;
-    width: 80vw;
+    width: 50vw;
     margin: 0.5em auto;
     padding: 1em 3em;
+}
+
+.price {
+    float: right;
+    position: relative;
 }
 
 
