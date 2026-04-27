@@ -1,13 +1,12 @@
 extends layout
 
 block content
-  h2(class="com-header") Welcome to Comments by Real People
-
-  h2 Comment:
-  form(method='POST' action='/create')
+  h2(class="com-header") Leave a Comment:
+  form(class="write-comment" method='POST' action='/create')
     //label(for='task') Task:
-    input(type='text', name='task', id='task', required, maxlength="250")
-    button(type='submit') Submit
+    //- input(type='text', name='task', id='task', required, maxlength="250")
+    textarea(name='task', id='task', required, maxlength="250")
+    button(type='submit' id='submit-comment') Submit 
   
 
   section(class="comment-list")
