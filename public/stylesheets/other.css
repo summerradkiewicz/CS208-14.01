@@ -1,0 +1,117 @@
+/* MENU PAGE */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Donut/Coffee sections for the menu */
+h1 {
+    text-align: center;
+}
+
+section {
+    border-bottom: 5px solid var(--saffron);
+    width: 100vw;
+    display: block;
+    line-height: 300%;
+}
+
+.coffee-menu {
+    background-color: var(--saffron);
+}
+
+/* Table of Coffee/Prices*/
+table {
+    margin: 0 auto;
+}
+
+/* Each donut on the menu */
+.menu-option {
+    background-color: var(--saffron);
+    text-align: left;
+    width: 80vw;
+    margin: 0.5em auto;
+    padding: 1em 3em;
+}
+
+
+/* ABOUT US SECTION */
+.main-about {
+    font-size: larger;
+}
+
+.hero, .mission {
+    background-color: var(--dark-green);
+    color: var(--seasalt);
+    text-align: center;
+    padding: 4em 8em;
+}
+
+.history {
+    text-align: right;
+    padding: 4em 8em;
+}
+
+.history img {
+    float: left;
+    padding-top: 0;
+}
+
+.mission {
+    text-align: left;
+}
+
+.mission img {
+    position: relative;
+    left: -5vw;
+    float: right;
+    padding-top: 0;
+}
+
+/* COMMENTS PAGE */
+.comment-list {
+    display: grid;
+    place-items: center;
+    background-color: var(--beige);
+    line-height: 120%;
+}
+
+li {
+    background-color: var(--seasalt);
+    width: fit-content;
+    list-style: none;
+    margin: 1% 0;
+    border: solid 2px var(--cool-gray);
+    border-radius: 5px;
+    box-shadow: 5px 5px 0px var(--saffron);
+    padding: 0.5em;
+}
+
+.timestamp {
+    font-size: smaller;
+    color: var(--cool-gray);
+}
+
+/* Page header for comments */
+.com-header {
+    text-align: center;
+    padding: 3%;
+}
+
+.load-more {
+    display: block;
+    text-align: center;
+    margin: 2em auto;
+    padding: 0.5em 1em;
+    background-color: var(--saffron);
+    color: black;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 0px var(--cool-gray);
+}
+
+.load-more:hover {
+    background-color: var(--seasalt);
+}

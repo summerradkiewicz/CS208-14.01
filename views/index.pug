@@ -1,21 +1,25 @@
 extends layout
 
 block content
-  h2 Welcome to Comments by Real People
+  h2(class="com-header") Welcome to Comments by Real People
 
   h2 Comment:
   form(method='POST' action='/create')
     //label(for='task') Task:
     input(type='text', name='task', id='task', required, maxlength="250")
     button(type='submit') Submit
-  hr
-  ol
-  each val in todos
-    li
-      span= val.task + ' - ' + val.formattedDate
-      form(method='POST' action='/delete')
-        input(type='hidden', name='id', value=val.id)
-        button(type='submit') Delete
+  
 
-  if todos.length < totalCount
-    a(href="/comments.pug?offset=" + (offset + 3)) Load More
+  section(class="comment-list")
+    ol
+    each val in todos
+      li
+        //- span= val.formattedDate + " - " + val.task
+        span(class="timestamp") !{val.formattedDate} <br> 
+        span(class="posted-comment") !{val.task}
+        form(method='POST' action='/delete')
+          input(type='hidden', name='id', value=val.id)
+          button(type='submit') Delete
+
+    if todos.length < totalCount
+      a(class="load-more" href="/comments.pug?offset=" + (offset + 3)) Load More

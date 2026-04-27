@@ -133,7 +133,15 @@ footer a:hover {
   color: var(--seasalt);
 }
 
-footer h3 {
+.italianno-regular {
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+footer span {
+  display: block;
   text-align: right;
   padding-right: 2em;
+  font-size: 30pt
 }
