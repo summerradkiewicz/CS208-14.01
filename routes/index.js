@@ -18,8 +18,9 @@ router.get(['/', '/comments.pug'], function(req, res, next){
       }));
       const offset = parseInt(req.query.offset) || 0;
       const displayed = results.reverse().slice(0, 10 + offset);
-      res.render('index', { title: 'Downtown Donuts', todos: displayed, offset: offset, totalCount: results.length });
-      // res.render('index', { title: 'Downtown Donuts', todos: results });
+      res.render('index', { title: 'Downtown Donuts', 
+                todos: displayed, offset: offset, 
+                totalCount: results.length, error: req.query.error || ''});
     });
   } catch (error) {
     console.error('Error fetching items:', error);
@@ -34,10 +35,12 @@ router.post('/create', function (req, res, next) {
 
     // Validate character limit
     if (!task || task.trim().length === 0) {
-      return res.status(400).send('Comment cannot be empty');
+      res.redirect('/comments.pug?error=Comment cannot be empty');
+      return;
     }
     if (task.length > MAX_LENGTH) {
-      return res.status(400).send(`Comment exceeds maximum length of ${MAX_LENGTH} characters`);
+      res.redirect('/comments.pug?error=Comment exceeds maximum length of 250');
+      return;
     }
     
     try {
@@ -53,6 +56,7 @@ router.post('/create', function (req, res, next) {
     } catch (error) {
       console.error('Error adding comment:', error);
       res.status(500).send('Error adding comment');
+
     }
 });
 

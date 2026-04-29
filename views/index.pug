@@ -2,23 +2,24 @@ extends layout
 
 block content
   h2(class="com-header") Leave a Comment:
+  if error
+    span(class="error-message") !{error}
   form(class="write-comment" method='POST' action='/create')
-    //label(for='task') Task:
-    //- input(type='text', name='task', id='task', required, maxlength="250")
-    textarea(name='task', id='task', required, maxlength="250")
-    button(type='submit' id='submit-comment') Submit 
+    input(type="text" name='task', id='task', required)
+    button(type='submit' id='submit-comment' onclick='disable()') Submit 
   
 
   section(class="comment-list")
     ol
     each val in todos
       li
-        //- span= val.formattedDate + " - " + val.task
         span(class="timestamp") !{val.formattedDate} <br> 
         span(class="posted-comment") !{val.task}
-        form(method='POST' action='/delete')
-          input(type='hidden', name='id', value=val.id)
-          button(type='submit') Delete
 
     if todos.length < totalCount
       a(class="load-more" href="/comments.pug?offset=" + (offset + 3)) Load More
+
+  script.
+    function disable() {
+      document.getElementById('submit-comment').style.visibility = 'hidden';
+    }
