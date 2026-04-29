@@ -25,6 +25,8 @@ section {
 /* Table of Coffee/Prices*/
 table {
     margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 5vw 0;
 }
 
 /* Each donut on the menu */
@@ -62,6 +64,12 @@ table {
 .history img {
     float: left;
     padding-top: 0;
+}
+
+.history p {
+    text-align: left;
+    position: relative;
+    left: 4vw;
 }
 
 .mission {

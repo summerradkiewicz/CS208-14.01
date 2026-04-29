@@ -105,7 +105,7 @@ main {
   100% {opacity: 0; left: -5vw; z-index: 2};
 }
 
-.hero-text {
+.hero-r, .hero-l {
   background-color: var(--seasalt);
   float: left;
   position: relative;
@@ -113,6 +113,10 @@ main {
   font-size: large;
   padding: 10em;
   z-index: 10;
+}
+
+.hero-r {
+  float: right;
 }
 
 footer {
