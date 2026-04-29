@@ -43,7 +43,6 @@ table {
     position: relative;
 }
 
-
 /* ABOUT US SECTION */
 .main-about {
     font-size: larger;
@@ -165,3 +164,28 @@ li {
 #submit-comment:hover {
     background-color: var(--beige);
 }
+
+@media screen and (max-width: 480px) {
+    .menu-option {
+        width: 80vw;
+        padding: 1em 2em;
+    }
+
+    .hero, .mission, .history {
+        padding: 2vw 4vw;
+    }
+
+    .comment-list{
+        width: 90vw;
+    }
+
+    #task {
+        width: 80vw;
+        height: 10vw;
+    }
+
+    li {
+        max-width: 80vw;
+    }
+}
+

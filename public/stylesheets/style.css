@@ -76,12 +76,14 @@ main {
   flex-wrap: wrap;
 }
 
+/* conatiner for donut images */
 .bg-img {
   display: grid;
   position: relative;
   z-index: 5;
 }
 
+/* the donut image itself */
 .bg-img img {
   grid-area: 1 / 1;
   position: relative;
@@ -148,4 +150,25 @@ footer span {
   text-align: right;
   padding-right: 2em;
   font-size: 30pt
+}
+
+/* For phone screens */
+@media screen and (max-width: 480px) {
+  header {
+    width: 100vw;
+  }
+
+  .hero-r, .hero-l {
+    line-height: 170%;
+    font-size: large;
+    padding: 15vw;
+    z-index: 10;
+  }
+
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5vw;
+    padding-bottom: 15vh;
+  }
 }
